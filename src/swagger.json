@@ -1,0 +1,78 @@
+{
+"openapi":"3.0.0",
+"info": {
+    "title": "RentalX Documentation",
+    "description":"this is an API Renti",
+    "version":"1.0.0",
+    "contact":{
+    "email":"leandrofaustino88@gmail.com"
+    }
+},
+"paths":  {
+    "/categories": {
+        "post": {
+            "tags":[ "Category"],
+            "summary":"Create category",
+            "description":"Create a new Category",
+            "requestBody":{
+            "content": {
+            "aplication/json":{
+            "schema":{
+                "type": "object",
+                "properties":{
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "name": "Category name sample",
+                    "description": "Category description sample"
+                }
+            }
+            }    
+            }
+        },
+        "responses": {
+            "201": {
+                "description": "Created"
+            },
+            "500": {
+                "description": "Category already exists"
+            }
+        }
+        },
+
+     "get": {
+         "tags":["Category"],
+         "summary":"List all categories",
+         "description": "List all categories",
+         "responses":{
+             "200": {
+                 "description":"Sucess",
+                 "constent": {
+                     "aplication/json": {
+                         "schema": {
+                             "type": "array",
+                             "items": {
+                                 "type":"object",
+                                 "properties": {
+                                     "name": {
+                                         "type": "string"
+                                             },
+                                             "description": {
+                                                 "type":"string"
+                                             }
+                                 }
+                             }
+                         }
+                     }
+                 }
+             }
+         }
+     }
+    }
+}
+}
